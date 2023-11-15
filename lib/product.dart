@@ -42,14 +42,10 @@ class _ProductState extends State<Product> {
           final product = products[index];
           return Container(
             decoration: BoxDecoration(
-              border: Border.all(
-                  color:
-                      Colors.black87), // Menambahkan border dengan warna abu-abu
-              borderRadius:
-                  BorderRadius.circular(8), // Menambahkan border radius
+              border: Border.all(color: Colors.black87),
+              borderRadius: BorderRadius.circular(8),
             ),
-            margin: const EdgeInsets.all(
-                8), // Memberikan margin untuk memisahkan item
+            margin: const EdgeInsets.all(8),
             child: Column(
               children: [
                 ListTile(
@@ -57,18 +53,22 @@ class _ProductState extends State<Product> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       RichText(
-                  text: TextSpan(
-                    style: DefaultTextStyle.of(context).style,
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: product.name,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
+                        text: TextSpan(
+                          style: DefaultTextStyle.of(context).style,
+                          children: <TextSpan>[
+                            TextSpan(
+                              text: product.name,
+                              style:
+                                  const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
-                  ),
-                ),
                       IconButton(
-                        icon: const Icon(Icons.delete, color: Colors.red,),
+                        icon: const Icon(
+                          Icons.delete,
+                          color: Colors.red,
+                        ),
                         onPressed: () {
                           _showConfirmationDialog(context, index);
                         },
@@ -78,8 +78,7 @@ class _ProductState extends State<Product> {
                   subtitle:
                       Text('Price: Rp.${product.price.toStringAsFixed(3)}'),
                 ),
-                const SizedBox(
-                    height: 10), // SizedBox untuk memberikan jarak antar item
+                const SizedBox(height: 10),
               ],
             ),
           );
